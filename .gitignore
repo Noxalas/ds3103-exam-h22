@@ -17,6 +17,9 @@ logs
 **/*.backup.*
 **/*.back.*
 
+electricgames/package.json
+electricgames/package-lock.json
+
 node_modules
 bower_components
 
