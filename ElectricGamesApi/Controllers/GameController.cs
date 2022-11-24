@@ -64,7 +64,7 @@ public class GameController : ControllerBase
         Hvis man skal ha flere GET-metoder enn stardand-GET, som returnerer alle, og GET etter id benytter man Route action
     */
     [HttpGet("{title}")]
-    [Route("[action]")] // https://localhost:7XXX/game/getbytitle/tegnefilmnTittelHer
+    [Route("[action]")] // https://localhost:7XXX/game/getbytitle/gameTitleHere
     public void GetByTitle(string title)
     {
 
