@@ -1,4 +1,4 @@
-namespace Api;
+namespace ElectricGamesApi;
 
 public class WeatherForecast
 {
