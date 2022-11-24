@@ -17,7 +17,7 @@ builder.Services.AddCors(
 
 
 builder.Services.AddDbContext<GameContext>(
-    options => options.UseSqlite("Data Source=CartoonDatabase.db")
+    options => options.UseSqlite("Data Source=GameDatabase.db")
 );
 
 // Add services to the container.
