@@ -9,11 +9,11 @@ namespace ElectricGamesApi.Controllers;
 [Route("[controller]")]
 public class GameController : ControllerBase
 {
-    private readonly GameContext context;
+    private readonly GameContext _context;
 
-    public GameController(GameContext _context)
+    public GameController(GameContext context)
     {
-        context = _context; // initierer GameContext slik at vi har tilgang til CRUD mot databasen mot de Model-klassene angitt i DbSet<>
+        _context = context; // initierer GameContext slik at vi har tilgang til CRUD mot databasen mot de Model-klassene angitt i DbSet<>
     }
 
     [HttpGet]
@@ -21,8 +21,8 @@ public class GameController : ControllerBase
     {
         try
         {
-            List<Game> games = await context.Games.ToListAsync();
-            return Ok(games);        
+            List<Game> games = await _context.Games.ToListAsync();
+            return Ok(games);
         }
         catch
         {
@@ -33,9 +33,9 @@ public class GameController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Game>> Get(int id)
     {
-        Game? game = await context.Games.FindAsync(id);
+        Game? game = await _context.Games.FindAsync(id);
 
-        if( game != null )
+        if (game != null)
         {
             return Ok(game); // Status 200 + Game-objektet
         }
@@ -50,14 +50,14 @@ public class GameController : ControllerBase
     {
         try
         {
-            context.Games.Add(newGame);
-            context.SaveChanges();
-            return CreatedAtAction("Get", new {id = newGame.Id}, newGame ); // Sender tilbake objektet som ble lagret inklusivt Id som den nettopp har fått etter lagring til databasen.
+            _context.Games.Add(newGame);
+            _context.SaveChanges();
+            return CreatedAtAction("Get", new { id = newGame.Id }, newGame); // Sender tilbake objektet som ble lagret inklusivt Id som den nettopp har fått etter lagring til databasen.
         }
         catch
         {
             return StatusCode(500); // 500 er en generisk status for at noe galt skjedde på serverside; eksempelvis her at Web Api ikke kunne nå databasen.
-        }    
+        }
     }
 
     /*
@@ -65,9 +65,18 @@ public class GameController : ControllerBase
     */
     [HttpGet("{title}")]
     [Route("[action]")] // https://localhost:7XXX/game/getbytitle/gameTitleHere
-    public void GetByTitle(string title)
+    public async Task<ActionResult<Game>> GetByTitle(string title)
     {
+        IEnumerable<Game> chosenGames = from game in _context.Games where game.Title == title select game;
 
+        if (chosenGames != null)
+        {
+            return Ok(chosenGames);
+        }
+        else
+        {
+            return NotFound();
+        }
     }
 
 
