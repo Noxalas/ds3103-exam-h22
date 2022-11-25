@@ -2,7 +2,7 @@ import axios from "axios";
 
 const GameService = (() => {
   const endpoints = {
-    games: "http://localhost:5126/game",
+    games: "http://localhost:5126/api/game",
   };
 
   const getAllGames = async () => {

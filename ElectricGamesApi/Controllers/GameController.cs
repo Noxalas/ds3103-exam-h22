@@ -6,7 +6,7 @@ using ElectricGamesApi.Models;
 namespace ElectricGamesApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class GameController : ControllerBase
 {
     private readonly GameContext context;
@@ -22,7 +22,7 @@ public class GameController : ControllerBase
         try
         {
             List<Game> games = await context.Games.ToListAsync();
-            return Ok(games);        
+            return Ok(games);
         }
         catch
         {
@@ -58,16 +58,6 @@ public class GameController : ControllerBase
         {
             return StatusCode(500); // 500 er en generisk status for at noe galt skjedde på serverside; eksempelvis her at Web Api ikke kunne nå databasen.
         }    
-    }
-
-    /*
-        Hvis man skal ha flere GET-metoder enn stardand-GET, som returnerer alle, og GET etter id benytter man Route action
-    */
-    [HttpGet("{title}")]
-    [Route("[action]")] // https://localhost:7XXX/game/getbytitle/gameTitleHere
-    public void GetByTitle(string title)
-    {
-
     }
 
 
