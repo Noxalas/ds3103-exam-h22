@@ -4,7 +4,7 @@ const GameItem = ({ title, platform, releaseYear, image }) => {
       <h2>{title}</h2>
       <h3>{platform}</h3>
       <h3>{releaseYear}</h3>
-      <img src={image} alt="bilde" />
+      <img src={`http://localhost:5126/images/${image}`} alt="bilde" />
     </article>
   );
 };
