@@ -6,7 +6,7 @@ using ElectricGamesApi.Models;
 namespace ElectricGamesApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class GameController : ControllerBase
 {
     private readonly GameContext _context;
