@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import React from "react";
 import GameItem from "./GameItem";
 import GameService from "../../services/GameService";
 

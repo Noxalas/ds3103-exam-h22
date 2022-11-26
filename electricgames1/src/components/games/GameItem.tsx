@@ -1,4 +1,5 @@
-import IGame from "../../Interfaces/IGame";
+import IGame from "../../interfaces/IGame";
+import React from "react";
 
 const GameItem = ({ title, platform, releaseYear, image }: IGame) => {
   return (

@@ -1,6 +1,7 @@
+import React from "react";
 import { useEffect, useState, createContext, ReactNode } from "react";
-import IGameContext from "../Interfaces/IGameContext";
-import IGame from "../Interfaces/IGame";
+import IGameContext from "../interfaces/IGameContext";
+import IGame from "../interfaces/IGame";
 import GameService from "../services/GameService";
 
 export const GameContext = createContext<IGameContext | null>(null);

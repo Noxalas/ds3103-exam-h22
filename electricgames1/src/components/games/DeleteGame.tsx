@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext, ChangeEvent } from "react";
-import IGameContext from "../../Interfaces/IGameContext";
+import IGameContext from "../../interfaces/IGameContext";
 import { GameContext } from "../../contexts/GameContext";
 
 const DeleteGame = () => {
