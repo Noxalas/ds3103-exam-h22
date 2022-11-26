@@ -1,4 +1,7 @@
-const GameItem = ({ title, platform, releaseYear, image }) => {
+import IGame from "../../interfaces/IGame";
+import React from "react";
+
+const GameItem = ({ title, platform, releaseYear, image }: IGame) => {
   return (
     <article>
       <h2>{title}</h2>
