@@ -7,11 +7,11 @@ namespace ElectricGamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class GameCharacterController : ControllerBase
+public class CharacterController : ControllerBase
 {
     private readonly GameContext _context;
 
-    public GameCharacterController(GameContext context)
+    public CharacterController(GameContext context)
     {
         _context = context; // initierer GameContext slik at vi har tilgang til CRUD mot databasen mot de Model-klassene angitt i DbSet<>
     }
