@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using ElectricGamesApi.Interfaces;
-namespace ElectricGamesApi.Models;
 
+namespace ElectricGamesApi.Models;
 public class Game : IGame
 {
     [Key]

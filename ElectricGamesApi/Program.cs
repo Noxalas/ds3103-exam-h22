@@ -5,7 +5,8 @@ using ElectricGamesApi.Contexts;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(
-    options => {
+    options =>
+    {
         options.AddPolicy("AllowAll",
             builder => builder
                 .AllowAnyHeader()

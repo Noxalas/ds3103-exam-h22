@@ -66,13 +66,12 @@ public class GameController : ControllerBase
     [HttpGet("[action]/{title}")]
     public async Task<ActionResult<List<Game>>> GetByTitle(string title)
     {
-        List<Game> games = await _context.Games.Where(g => g.Title == title).ToListAsync();
-
-        if (games != null)
+        try
         {
+            List<Game> games = await _context.Games.Where(g => g.Title == title).ToListAsync();
             return Ok(games);
         }
-        else
+        catch
         {
             return StatusCode(500);
         }
