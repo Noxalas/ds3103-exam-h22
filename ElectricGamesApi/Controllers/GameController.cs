@@ -63,21 +63,19 @@ public class GameController : ControllerBase
     /*
         Hvis man skal ha flere GET-metoder enn stardand-GET, som returnerer alle, og GET etter id benytter man Route action
     */
-    [HttpGet("{title}")]
-    [Route("[action]")] // https://localhost:7XXX/game/getbytitle/gameTitleHere
-    public async Task<ActionResult<Game>> GetByTitle(string title)
+    [HttpGet("[action]/{title}")]
+    public async Task<ActionResult<List<Game>>> GetByTitle(string title)
     {
-        IEnumerable<Game> chosenGames = from game in _context.Games where game.Title == title select game;
+        List<Game> games = await _context.Games.Where(g => g.Title == title).ToListAsync();
 
-        if (chosenGames != null)
+        if (games != null)
         {
-            return Ok(chosenGames);
+            return Ok(games);
         }
         else
         {
-            return NotFound();
+            return StatusCode(500);
         }
     }
-
 
 }
