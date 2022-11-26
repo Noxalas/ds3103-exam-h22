@@ -6,7 +6,6 @@ function App() {
 
   return (
     <div>
-      <h1>Games</h1>
       <GameList />
     </div>
   );

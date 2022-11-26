@@ -13,7 +13,7 @@ public class GameController : ControllerBase
 
     public GameController(GameContext context)
     {
-        _context = context; // initierer GameContext slik at vi har tilgang til CRUD mot databasen mot de Model-klassene angitt i DbSet<>
+        _context = context;
     }
 
     [HttpGet]
@@ -26,7 +26,7 @@ public class GameController : ControllerBase
         }
         catch
         {
-            return StatusCode(500); // 500 er en generisk status for at noe galt skjedde på serverside; eksempelvis her at Web Api ikke kunne nå databasen.
+            return StatusCode(500); 
         }
     }
 
@@ -37,11 +37,11 @@ public class GameController : ControllerBase
 
         if (game != null)
         {
-            return Ok(game); // Status 200 + Game-objektet
+            return Ok(game);
         }
         else
         {
-            return NotFound(); // Status 404 Ikke Funnet
+            return NotFound();
         }
     }
 
@@ -52,11 +52,11 @@ public class GameController : ControllerBase
         {
             _context.Games.Add(newGame);
             _context.SaveChanges();
-            return CreatedAtAction("Get", new { id = newGame.Id }, newGame); // Sender tilbake objektet som ble lagret inklusivt Id som den nettopp har fått etter lagring til databasen.
+            return CreatedAtAction("Get", new { id = newGame.Id }, newGame); 
         }
         catch
         {
-            return StatusCode(500); // 500 er en generisk status for at noe galt skjedde på serverside; eksempelvis her at Web Api ikke kunne nå databasen.
+            return StatusCode(500); 
         }
     }
 
@@ -75,6 +75,30 @@ public class GameController : ControllerBase
         {
             return StatusCode(500);
         }
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+        if (id <= 0)
+        {
+            return BadRequest("Not a valid game id");
+        }
+
+        var game = _context.Games.Where(a => a.Id == id).FirstOrDefault<Game>();
+
+        if (game != null)
+        {
+            _context.Games.Remove(game);
+
+            _context.SaveChanges();
+        }
+        else
+        {
+            return NotFound();
+        }
+
+        return Ok();
     }
 
 }
