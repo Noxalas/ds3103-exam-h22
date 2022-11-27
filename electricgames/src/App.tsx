@@ -13,21 +13,31 @@ function App() {
         <h1>ElectricGames Company</h1>
         <BrowserRouter>
           <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
+            <ul className="nav ">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/">
+                  Home
+                </Link>
               </li>
-              <li>
-                <Link to="edit">Edit</Link>
+              <li className="nav-item">
+                <Link className="nav-link active" to="edit">
+                  Edit
+                </Link>
               </li>
-              <li>
-                <Link to="createnew">Create New</Link>
+              <li className="nav-item">
+                <Link className="nav-link active" to="createnew">
+                  Create New
+                </Link>
               </li>
-              <li>
-                <Link to="quiz">Quiz</Link>
+              <li className="nav-item">
+                <Link className="nav-link active" to="quiz">
+                  Quiz
+                </Link>
               </li>
-              <li>
-                <Link to="contact">Contact us</Link>
+              <li className="nav-item">
+                <Link className="nav-link active" to="contact">
+                  Contact us
+                </Link>
               </li>
             </ul>
           </nav>
