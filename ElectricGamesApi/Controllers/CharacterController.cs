@@ -40,8 +40,8 @@ public class CharacterController : EGController
         }
     }
 
-    [HttpPost("{gameCharacter}")]
-    public IActionResult Post(GameCharacter newGameCharacter)
+    [HttpPut("{gameCharacter}")]
+    public IActionResult Put(GameCharacter newGameCharacter)
     {
         try
         {
@@ -55,8 +55,8 @@ public class CharacterController : EGController
         }
     }
 
-    [HttpPut("{gameCharacter}")]
-    public IActionResult Put(GameCharacter gameCharacter)
+    [HttpPost("{gameCharacter}")]
+    public IActionResult Post(GameCharacter gameCharacter)
     {
         var existingCharacter = _context.GameCharacters.Where(gc => gc.Id == gameCharacter.Id).FirstOrDefault<GameCharacter>();
 
