@@ -86,7 +86,9 @@ public class QuizQuestionAnswerController : EGController
 
         if (existingAnswer != null)
         {
-            // TODO: Add more to Put method
+            existingAnswer.QuizQuestionObj = quiz.QuizQuestionObj;
+            existingAnswer.QuizAnswerText = quiz.QuizAnswerText;
+            existingAnswer.CorrectAnswer = quiz.CorrectAnswer;
         }
         else
         {

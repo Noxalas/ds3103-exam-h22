@@ -86,7 +86,9 @@ public class QuizQuestionController : EGController
 
         if (existingQuestion != null)
         {
-            // TODO: Add more to Put method
+            existingQuestion.QuizObj = question.QuizObj;
+            existingQuestion.Question = question.Question;
+            existingQuestion.MultipleAnswersCount = question.MultipleAnswersCount;
         }
         else
         {

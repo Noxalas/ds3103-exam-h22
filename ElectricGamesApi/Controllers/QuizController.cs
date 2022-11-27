@@ -89,8 +89,10 @@ public class QuizController : EGController
 
         if (existingQuiz != null)
         {
+            existingQuiz.GameObj = quiz.GameObj;
             existingQuiz.Name = quiz.Name;
-            // TODO: Add more to Put method
+            existingQuiz.QuizText = quiz.QuizText;
+
         }
         else
         {
