@@ -26,7 +26,7 @@ public class GameController : ControllerBase
         }
         catch
         {
-            return StatusCode(500); 
+            return StatusCode(500);
         }
     }
 
@@ -42,21 +42,6 @@ public class GameController : ControllerBase
         else
         {
             return NotFound();
-        }
-    }
-
-    [HttpPost]
-    public IActionResult Post(Game newGame)
-    {
-        try
-        {
-            _context.Games.Add(newGame);
-            _context.SaveChanges();
-            return CreatedAtAction("Get", new { id = newGame.Id }, newGame); 
-        }
-        catch
-        {
-            return StatusCode(500); 
         }
     }
 
@@ -92,6 +77,41 @@ public class GameController : ControllerBase
             _context.Games.Remove(game);
 
             _context.SaveChanges();
+        }
+        else
+        {
+            return NotFound();
+        }
+
+        return Ok();
+    }
+
+    [HttpPost("{game}")]
+    public IActionResult Post(Game newGame)
+    {
+        try
+        {
+            _context.Games.Add(newGame);
+            _context.SaveChanges();
+            return CreatedAtAction("Get", new { id = newGame.Id }, newGame);
+        }
+        catch
+        {
+            return StatusCode(500);
+        }
+    }
+
+    [HttpPut("{game}")]
+    public IActionResult Put(Game game)
+    {
+        var existingGame = _context.Games.Where(g => g.Id == game.Id).FirstOrDefault();
+
+        if (existingGame != null)
+        {
+            existingGame.Title = game.Title;
+            existingGame.Platform = game.Platform;
+            existingGame.ReleaseYear = game.ReleaseYear;
+            existingGame.Image = game.Image;
         }
         else
         {
