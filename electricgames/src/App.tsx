@@ -15,27 +15,27 @@ function App() {
           <nav>
             <ul className="nav nav-tabs">
               <li className="nav-item">
-                <Link className="nav-link active" to="/">
+                <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="edit">
+                <Link className="nav-link" to="edit">
                   Edit
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="createnew">
+                <Link className="nav-link" to="createnew">
                   Create New
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="quiz">
+                <Link className="nav-link" to="quiz">
                   Quiz
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="contact">
+                <Link className="nav-link" to="contact">
                   Contact us
                 </Link>
               </li>
