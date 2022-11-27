@@ -1,10 +1,12 @@
 using ElectricGamesApi.Models;
 
 namespace ElectricGamesApi.Interfaces;
-public interface IGameCharacter
+public interface IQuiz
 {
     int Id { get; set; }
-    string Name { get; set; }
     int GameId { get; set; }
-    Game Game { get; set; }
+    Game GameObj { get; set; }
+    string Name { get; set; }
+    string QuizText { get; set; }
+
 }

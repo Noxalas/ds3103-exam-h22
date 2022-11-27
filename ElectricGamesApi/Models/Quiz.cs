@@ -3,12 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using ElectricGamesApi.Interfaces;
 
 namespace ElectricGamesApi.Models;
-public class GameCharacter : IGameCharacter
+public class Quiz : IQuiz
 {
     [Key]
     public int Id { get; set; }
-    public string Name { get; set; } = null!;
     [ForeignKey("Game")]
     public int GameId { get; set; }
-    public virtual Game Game { get; set; } = null!;
+    public virtual Game GameObj { get; set; } = null!;
+    public string Name { get; set; } = null!;
+    public string QuizText { get; set; } = null!;
 }

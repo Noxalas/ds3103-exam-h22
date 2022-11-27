@@ -1,4 +1,4 @@
-
+namespace ElectricGamesApi.Interfaces;
 public interface IAbility
 {
     int Id { get; set; }
