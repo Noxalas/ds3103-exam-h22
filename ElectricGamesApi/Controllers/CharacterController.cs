@@ -7,14 +7,9 @@ namespace ElectricGamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CharacterController : ControllerBase
+public class CharacterController : EGController
 {
-    private readonly GameContext _context;
-
-    public CharacterController(GameContext context)
-    {
-        _context = context; // initierer GameContext slik at vi har tilgang til CRUD mot databasen mot de Model-klassene angitt i DbSet<>
-    }
+    public CharacterController(GameContext context) : base(context) { }
 
     [HttpGet]
     public async Task<ActionResult<List<GameCharacter>>> Get()

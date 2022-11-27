@@ -1,3 +1,6 @@
+using ElectricGamesApi.Models;
+
+namespace ElectricGamesApi.Interfaces;
 public interface IQuizQuestionAnswer
 {
     int Id { get; set; }

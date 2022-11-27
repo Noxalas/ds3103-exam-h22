@@ -11,5 +11,5 @@ public class QuizQuestion : IQuizQuestion
     public int QuizId { get; set; }
     public virtual Quiz QuizObj { get; set; } = null!;
     public string Question { get; set; } = null!;
-    int IQuizQuestion.MultipleAnswersCount { get; set; }
+    public int MultipleAnswersCount { get; set; }
 }

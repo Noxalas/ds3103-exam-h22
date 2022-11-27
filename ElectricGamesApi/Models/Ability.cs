@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ElectricGamesApi.Interfaces;
 
 namespace ElectricGamesApi.Models;
 public class Ability : IAbility

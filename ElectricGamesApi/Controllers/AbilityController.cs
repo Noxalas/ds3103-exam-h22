@@ -7,14 +7,9 @@ namespace ElectricGamesApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AbilityController : ControllerBase
+public class AbilityController : EGController
 {
-    private readonly GameContext _context;
-
-    public AbilityController(GameContext context)
-    {
-        _context = context;
-    }
+    public AbilityController(GameContext context) : base(context) { }
 
     [HttpGet]
     public async Task<ActionResult<List<Ability>>> Get()
