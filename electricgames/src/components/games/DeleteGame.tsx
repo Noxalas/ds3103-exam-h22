@@ -21,7 +21,9 @@ const DeleteGame = () => {
       <div>
         <label>Game id: </label>
         <input onChange={handleChange} type="number" value={id} />
-        <button onClick={deleteGame}>Delete game</button>
+        <button type="button" className="btn btn-danger" onClick={deleteGame}>
+          Delete game
+        </button>
       </div>
     </section>
   );

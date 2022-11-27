@@ -5,9 +5,9 @@ const GameItem = ({ title, platform, releaseYear, image }: IGame) => {
   return (
     <Col xs={6}>
       <div className="gameBorder">
-        <h3>{title}</h3>
-        <h4>{platform}</h4>
-        <h4>{releaseYear}</h4>
+        <h3 className="">{title}</h3>
+        <p className="card-title">Platform: {platform}</p>
+        <p>Year of release: {releaseYear}</p>
         <img src={`http://localhost:5126/images/${image}`} alt="bilde" className="test" />
       </div>
     </Col>
