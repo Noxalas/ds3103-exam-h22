@@ -4,7 +4,7 @@ import { Row } from "react-bootstrap";
 const HomePage = () => {
   return (
     <section>
-      <h1>Welcome to our page</h1>
+      <h1>All games stored in our database</h1>
       <Row>
         <GameList />
       </Row>
