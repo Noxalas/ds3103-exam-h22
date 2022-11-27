@@ -40,6 +40,23 @@ public class QuizQuestionController : EGController
         }
     }
 
+    [HttpGet("[action]/{quizId}")]
+    public async Task<ActionResult<List<QuizQuestion>>> GetQuestionsByQuizId(int quizId)
+    {
+        if (quizId <= 0) { return BadRequest("Not a valid quiz Id"); }
+
+        List<QuizQuestion> questions = await _context.QuizQuestions.Where(q => q.QuizId == quizId).ToListAsync();
+
+        if (questions != null)
+        {
+            return Ok(questions);
+        }
+        else
+        {
+            return NotFound();
+        }
+    }
+
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {

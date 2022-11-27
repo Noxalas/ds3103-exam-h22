@@ -40,8 +40,8 @@ public class QuizController : EGController
         }
     }
 
-    [HttpGet("[action]/{game}")]
-    public void GetByGame(Game game) { }
+    //[HttpGet("[action]/{game}")]
+    //public void GetByGame(Game game) { }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
