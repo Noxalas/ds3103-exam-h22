@@ -21,6 +21,7 @@ const GameList = () => {
 
   return (
     <section>
+      <h1 className="display-6">Games</h1>
       <Row>{getGameItems()}</Row>
     </section>
   );

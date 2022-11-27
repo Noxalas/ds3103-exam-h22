@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useContext, ChangeEvent } from "react";
 import IGameContext from "../../Interfaces/IGameContext";
 import { GameContext } from "../../contexts/GameContext";
@@ -16,7 +15,7 @@ const DeleteGame = () => {
   };
 
   return (
-    <section>
+    <section className="mt-3">
       <p>Number of games in our database: {games.length}</p>
       <div>
         <label>Game id: </label>
