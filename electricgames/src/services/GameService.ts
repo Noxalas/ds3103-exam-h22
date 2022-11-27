@@ -1,4 +1,5 @@
 import axios from "axios";
+import IGame from "../Interfaces/IGame";
 
 const GameService = (() => {
   const endpoints = {
@@ -16,6 +17,12 @@ const GameService = (() => {
     return result;
   };
 
+  const postGame = async (game: IGame) => {
+    const result = await axios.post(endpoints.games, game);
+    console.log(result);
+    return result.data;
+  };
+
   const deleteGameById = async (id: number) => {
     const result = await axios.delete(`${endpoints.games}/${id}`);
     return result;
@@ -25,6 +32,7 @@ const GameService = (() => {
     getAllGames,
     deleteGameById,
     getGameByTitle,
+    postGame,
   };
 })();
 

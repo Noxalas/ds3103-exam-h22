@@ -1,10 +1,13 @@
 import { Row } from "react-bootstrap";
+import AddGame from "../components/games/AddGame";
 
 const CreateNewPage = () => {
   return (
     <section>
       <h1>Here you can add new games to our game library</h1>
-      <Row></Row>
+      <Row>
+        <AddGame />
+      </Row>
     </section>
   );
 };
