@@ -28,7 +28,7 @@ const AddGame = () => {
         <input type="text" className="form-input" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
 
         <label htmlFor="platform" className="form-label">
-          email
+          platform
         </label>
         <input type="text" className="form-input" id="platform" value={platform} onChange={(e) => setPlatform(e.target.value)} />
 
