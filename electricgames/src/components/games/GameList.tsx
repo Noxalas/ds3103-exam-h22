@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import GameItem from "./GameItem";
 import GameService from "../../services/GameService";
+import { Row } from "react-bootstrap";
 
 const GameList = () => {
   const [games, setGames] = useState<any[]>([]);
@@ -20,8 +21,8 @@ const GameList = () => {
 
   return (
     <section>
-      <h2>Games</h2>
-      <section>{getGameItems()}</section>
+      <h1>Games</h1>
+      <Row>{getGameItems()}</Row>
     </section>
   );
 };

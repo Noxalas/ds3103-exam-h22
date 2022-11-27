@@ -1,13 +1,14 @@
 import IGame from "../../Interfaces/IGame";
+import { Col } from "react-bootstrap";
 
 const GameItem = ({ title, platform, releaseYear, image }: IGame) => {
   return (
-    <article>
-      <h2>{title}</h2>
-      <h3>{platform}</h3>
-      <h3>{releaseYear}</h3>
-      <img src={`http://localhost:5126/images/${image}`} alt="bilde" />
-    </article>
+    <Col xs={6}>
+      <h3>{title}</h3>
+      <h4>{platform}</h4>
+      <h4>{releaseYear}</h4>
+      <img src={`http://localhost:5126/images/${image}`} alt="bilde" className="test" />
+    </Col>
   );
 };
 export default GameItem;

@@ -10,15 +10,20 @@ const GameService = (() => {
     return response.data;
   };
 
+  const getGameByTitle = async (title: string) => {
+    const result = await axios.get(`${endpoints.games}/${title}`);
+    return result;
+  };
+
   const deleteGameById = async (id: number) => {
     const result = await axios.delete(`${endpoints.games}/${id}`);
-    console.log(result);
     return result;
   };
 
   return {
     getAllGames,
     deleteGameById,
+    getGameByTitle,
   };
 })();
 

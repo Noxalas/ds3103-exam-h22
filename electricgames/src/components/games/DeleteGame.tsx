@@ -17,13 +17,12 @@ const DeleteGame = () => {
 
   return (
     <section>
-      <h3>Delete a game</h3>
-      <p>Number of games in the database: {games.length}</p>
+      <p>Number of games in our database: {games.length}</p>
       <div>
         <label>Type id of a game to delete</label>
         <input onChange={handleChange} type="number" value={id} />
       </div>
-      <button onClick={deleteGame}>Delte game</button>
+      <button onClick={deleteGame}>Delete game</button>
     </section>
   );
 };
