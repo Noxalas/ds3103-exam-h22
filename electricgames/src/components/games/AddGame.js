@@ -20,21 +20,19 @@ const AddGame = () => {
 
   return (
     <section>
-      <h2>post request</h2>
       <form className="form" onSubmit={handler}>
-        <label htmlFor="title" className="form-label">
-          title
-        </label>
-        <input type="text" className="form-input" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
-
-        <label htmlFor="platform" className="form-label">
-          platform
-        </label>
-        <input type="text" className="form-input" id="platform" value={platform} onChange={(e) => setPlatform(e.target.value)} />
-
-        <input type="releaseYear" className="form-input" id="releaseYear" value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
-
-        <input type="text" className="form-input" id="image" value={image} onChange={(e) => setImage(e.target.value)} />
+        <div className="form-row mb-2">
+          <input type="text" className="form-input" id="title" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
+        </div>
+        <div className="form-row mb-2">
+          <input type="text" className="form-input" id="platform" placeholder="platform" value={platform} onChange={(e) => setPlatform(e.target.value)} />
+        </div>
+        <div className="form-row mb-2">
+          <input type="releaseYear" className="form-input" id="releaseYear" placeholder="Release year" value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
+        </div>
+        <div className="form-row mb-2">
+          <input type="text" className="form-input" id="image" value={image} placeholder="Image" onChange={(e) => setImage(e.target.value)} />
+        </div>
         <button type="submit" className="btn btn-primary">
           register
         </button>
