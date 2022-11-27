@@ -19,10 +19,10 @@ const DeleteGame = () => {
     <section>
       <p>Number of games in our database: {games.length}</p>
       <div>
-        <label>Type id of a game to delete</label>
+        <label>Game id: </label>
         <input onChange={handleChange} type="number" value={id} />
+        <button onClick={deleteGame}>Delete game</button>
       </div>
-      <button onClick={deleteGame}>Delete game</button>
     </section>
   );
 };
