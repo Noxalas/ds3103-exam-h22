@@ -11,7 +11,6 @@ function App() {
     <Container>
       <header>
         <h1>ElectricGames Company</h1>
-        <p>Welcome to ElectricGames, we have a assortment of games to offer and a built in quiz!</p>
         <BrowserRouter>
           <nav>
             <ul>
