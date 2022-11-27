@@ -13,7 +13,7 @@ function App() {
         <h1>ElectricGames Company</h1>
         <BrowserRouter>
           <nav>
-            <ul className="nav ">
+            <ul className="nav nav-tabs">
               <li className="nav-item">
                 <Link className="nav-link active" to="/">
                   Home
