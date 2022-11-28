@@ -8,6 +8,6 @@ public class EGController : ControllerBase
 
     public EGController(GameContext context)
     {
-        _context = context; // initierer GameContext slik at vi har tilgang til CRUD mot databasen mot de Model-klassene angitt i DbSet<>
+        _context = context;
     }
 }
