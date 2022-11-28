@@ -40,14 +40,16 @@ public class CharacterController : EGController
         }
     }
 
-    [HttpPost("{gameCharacter}")]
+    [HttpPost("[action]/{gameCharacter}")]
     public IActionResult Post(GameCharacter newGameCharacter)
     {
         try
         {
+            _context.Games.Attach(newGameCharacter.Game);
             _context.GameCharacters.Add(newGameCharacter);
+
             _context.SaveChanges();
-            return CreatedAtAction("Get", new { id = newGameCharacter.Id }, newGameCharacter);
+            return Ok(newGameCharacter);
         }
         catch
         {
