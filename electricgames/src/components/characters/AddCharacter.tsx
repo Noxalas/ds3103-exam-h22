@@ -3,7 +3,7 @@ import axios from "axios";
 import { Dropdown, DropdownButton, InputGroup } from "react-bootstrap";
 import IGame from "../../Interfaces/IGame";
 import GameService from "../../services/GameService";
-const endpoint = "http://localhost:5126/api/Character/post";
+const endpoint = "http://localhost:5126/api/Character/Post/";
 
 const GameOption = (game: IGame) =>
 {
@@ -45,7 +45,13 @@ const AddCharacter = () =>
         e.preventDefault();
 
         try {
-            const resp = await axios.post(endpoint + `/${name}`, { name: name, game: game });
+            const character = {
+                name: name,
+                game: game
+            }
+            console.log(character);
+
+            const resp = await axios.post(endpoint + `${name}`, character);
             console.log(resp);
         } catch (error: any) { }
     };
