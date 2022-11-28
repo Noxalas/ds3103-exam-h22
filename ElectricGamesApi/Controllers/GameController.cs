@@ -97,8 +97,12 @@ public class GameController : EGController
 
     }
 
-    [HttpPut("{game}")]
-    public IActionResult Put(Game game)
+
+
+
+    [HttpPut("{id}")]
+    
+    public IActionResult Put ( int id,  Game game )
     {
         var existingGame = _context.Games.Where(g => g.Id == game.Id).FirstOrDefault();
 
