@@ -4,38 +4,31 @@ import GameService from "../../services/GameService";
 import { Row } from "react-bootstrap";
 import React from "react";
 
+const GameList = () => {
+  const [games, setGames] = useState<any[]>([]);
+  const [filter, setFilter] = useState("");
 
+  useEffect(() => {
+    setgamesFromService();
+  }, []);
 
-const GameList = () =>
-{
-    const [games, setGames] = useState<any[]>([]);
-    const [filter, setFilter] = useState('');
+  const setgamesFromService = async () => {
+    const gamesFromService = await GameService.getAllGames();
+    setGames(gamesFromService);
+  };
 
-    useEffect(() =>
-    {
-        setgamesFromService();
-    }, []);
+  const filteredGames = games.filter((key: any) => key.title.includes(filter));
 
-    const setgamesFromService = async () =>
-    {
-        const gamesFromService = await GameService.getAllGames();
-        setGames(gamesFromService);
-    };
+  const getGameItems = () => {
+    return filteredGames.map((game, counter) => <GameItem key={`game-${counter}`} title={game.title} platform={game.platform} releaseYear={game.releaseYear} image={game.image} />);
+  };
 
-    const filteredGames = games.filter((key: any) => key.title.includes(filter))
-
-    const getGameItems = () =>
-    {
-        return filteredGames.map((game, counter) => <GameItem key={`game-${counter}`} title={game.title} platform={game.platform} releaseYear={game.releaseYear} image={game.image} />);
-    };
-
-
-    return (
-        <section>
-            <h1 className="display-6">Games</h1>
-            Search: <input name="search" value={filter} onChange={e => setFilter(e.target.value)} />
-            <Row>{getGameItems()}</Row>
-        </section>
-    );
+  return (
+    <section>
+      <h1 className="display-6">Games</h1>
+      Search: <input name="search" value={filter.toLowerCase()} onChange={(e) => setFilter(e.target.value)} />
+      <Row>{getGameItems()}</Row>
+    </section>
+  );
 };
 export default GameList;
