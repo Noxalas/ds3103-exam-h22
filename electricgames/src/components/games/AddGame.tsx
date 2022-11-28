@@ -14,6 +14,7 @@ function AddGame()
     {
         const el = document.getElementById('image') as HTMLInputElement;
         el.placeholder = `${img.name}`;
+        setImage(img.name);
     }
 
     const handler = async (e: any) =>

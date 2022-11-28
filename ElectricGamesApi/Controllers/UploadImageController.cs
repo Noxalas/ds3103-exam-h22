@@ -26,9 +26,10 @@ public class UploadImageController : ControllerBase
         string wwwrootPath = hosting.WebRootPath;
         string absolutePath = Path.Combine($"{wwwrootPath}/images/{file.FileName}");
 
-        using(var fileStream = new FileStream(absolutePath, FileMode.Create))
+        using (var fileStream = new FileStream(absolutePath, FileMode.Create))
         {
             file.CopyTo(fileStream);
+            fileStream.Flush();
         }
 
         return Ok();
