@@ -43,7 +43,6 @@ public class CharacterController : EGController
     [HttpPost("{gameCharacter}")]
     public IActionResult Post(GameCharacter newGameCharacter)
     {
-        Console.WriteLine(newGameCharacter);
         try
         {
             _context.GameCharacters.Add(newGameCharacter);
