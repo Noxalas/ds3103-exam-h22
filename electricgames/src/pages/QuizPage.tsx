@@ -1,10 +1,7 @@
-import ImageUpload from "../components/games/UploadImage";
-
 const QuizPage = () => {
   return (
     <section>
-      <h1>This is our quiz</h1>
-      <ImageUpload />
+      <h1>This is our quiz... or atleast we thought it would be</h1>
     </section>
   );
 };

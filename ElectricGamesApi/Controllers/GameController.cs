@@ -40,9 +40,6 @@ public class GameController : EGController
         }
     }
 
-    /*
-        Hvis man skal ha flere GET-metoder enn stardand-GET, som returnerer alle, og GET etter id benytter man Route action
-    */
     [HttpGet("[action]/{title}")]
     public async Task<ActionResult<List<Game>>> GetByTitle(string title)
     {
@@ -88,17 +85,21 @@ public class GameController : EGController
         {
             _context.Games.Add(newGame);
             _context.SaveChanges();
-            return CreatedAtAction("Get", new { id = newGame.Id }, newGame); // Sender tilbake objektet som ble lagret inklusivt Id som den nettopp har fått etter lagring til databasen.
+            return CreatedAtAction("Get", new { id = newGame.Id }, newGame);
         }
         catch
         {
-            return StatusCode(500); // 500 er en generisk status for at noe galt skjedde på serverside; eksempelvis her at Web Api ikke kunne nå databasen.
+            return StatusCode(500); 
         }
 
     }
 
-    [HttpPut("{game}")]
-    public IActionResult Put(Game game)
+
+
+
+    [HttpPut("{id}")]
+    
+    public IActionResult Put ( int id,  Game game )
     {
         var existingGame = _context.Games.Where(g => g.Id == game.Id).FirstOrDefault();
 

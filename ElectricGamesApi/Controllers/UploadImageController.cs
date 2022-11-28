@@ -13,7 +13,6 @@ public class UploadImageController : ControllerBase
         hosting = _hosting;
     }
 
-    // lag en GET-metode som returnerer en string
     [HttpGet]
     public string Get()
     {

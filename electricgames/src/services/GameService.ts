@@ -4,7 +4,6 @@ import IGame from "../Interfaces/IGame";
 const GameService = (() => {
   const endpoints = {
     games: "http://localhost:5126/api/game",
-    characters: "http://localhost:5126/api/character",
   };
 
   const getAllGames = async () => {
