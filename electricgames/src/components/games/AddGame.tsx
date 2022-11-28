@@ -1,13 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
+import ImageUpload from "./UploadImage";
 const url = "http://localhost:5126/api/game/post";
 
-const AddGame = () =>
+function AddGame()
 {
     const [title, setTitle] = useState("");
     const [platform, setPlatform] = useState("");
     const [releaseYear, setReleaseYear] = useState("");
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState([]);
+
+    const handleImage = (img: any) =>
+    {
+        const el = document.getElementById('image') as HTMLInputElement;
+        el.placeholder = `${img.name}`;
+    }
 
     const handler = async (e: any) =>
     {
@@ -22,21 +29,17 @@ const AddGame = () =>
 
     return (
         <section>
-            <h2>post request</h2>
             <form className="form" onSubmit={handler}>
-                <label htmlFor="title" className="form-label">
-                    title
-                </label>
-                <input type="text" className="form-input" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
-
-                <label htmlFor="platform" className="form-label">
-                    platform
-                </label>
-                <input type="text" className="form-input" id="platform" value={platform} onChange={(e) => setPlatform(e.target.value)} />
-
-                <input type="releaseYear" className="form-input" id="releaseYear" value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
-
-                <input type="text" className="form-input" id="image" value={image} onChange={(e) => setImage(e.target.value)} />
+                <div className="mb-3"></div>
+                <input type="text" className="form-input " id="title" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} /> <br />
+                <input type="text" className="form-input" id="platform" placeholder="Platform" value={platform} onChange={(e) => setPlatform(e.target.value)} />
+                <br />
+                <input type="releaseYear" className="form-input" id="releaseYear" placeholder="Release year" value={releaseYear} onChange={(e) => setReleaseYear(e.target.value)} />
+                <br />
+                <input disabled type="text" className="form-input" id="image" placeholder="Image" />
+                <br />
+                <p>{image}</p>
+                <ImageUpload name="image" handleImage={handleImage} />
                 <button type="submit" className="btn btn-primary">
                     register
                 </button>
