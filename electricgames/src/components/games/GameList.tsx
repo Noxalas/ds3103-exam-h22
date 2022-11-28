@@ -26,7 +26,7 @@ const GameList = () => {
   return (
     <section>
       <h1 className="display-6">Games</h1>
-      Search: <input name="search" value={filter.toLowerCase()} onChange={(e) => setFilter(e.target.value)} />
+      Search: <input name="search" value={filter} onChange={(e) => setFilter(e.target.value)} />
       <Row>{getGameItems()}</Row>
     </section>
   );
