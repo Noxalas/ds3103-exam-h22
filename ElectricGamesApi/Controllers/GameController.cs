@@ -88,14 +88,6 @@ public class GameController : EGController
         {
             _context.Games.Add(newGame);
             _context.SaveChanges();
-<<<<<<< HEAD
-            return CreatedAtAction("Get", new { id = newGame.Id }, newGame);
-        }
-        catch
-        {
-            return StatusCode(500);
-        }
-=======
             return CreatedAtAction("Get", new { id = newGame.Id }, newGame); // Sender tilbake objektet som ble lagret inklusivt Id som den nettopp har fått etter lagring til databasen.
         }
         catch
@@ -103,7 +95,6 @@ public class GameController : EGController
             return StatusCode(500); // 500 er en generisk status for at noe galt skjedde på serverside; eksempelvis her at Web Api ikke kunne nå databasen.
         }
 
->>>>>>> 27997d5232bfe2f96200329c31c01559bc39123a
     }
 
     [HttpPut("{game}")]
