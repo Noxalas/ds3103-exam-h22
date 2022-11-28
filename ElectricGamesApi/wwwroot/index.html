@@ -1,28 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ElectricGamesApi</title>
-  </head>
-  <body>
-    <div>
-      <header>
-        <h1>ElectricGamesApi</h1>
-        <h2>API for ElectricGames</h2>
-      </header>
+</head>
 
-      <main>
-        <section>
-          <h3>Endepunkter</h3>
-          <ul>
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
-          </ul>
-        </section>
-      </main>
+<body>
+    <div>
+        <header>
+            <h1>ElectricGamesApi</h1>
+            <h2>API for ElectricGames</h2>
+        </header>
+
+        <main>
+            <section>
+                <h2 id="introduction">Introduction</h2>
+                <p>Welcome to the official documentation of the ElectricGamesAPI. This page aims at giving you a broad
+                    overview over the endpoints available and the provided functionality.</p>
+                <p>If you want a more detailed look at the schema design and the available endpoints, please use
+                    Swagger.</p>
+                <h2 id="schemas">Schemas</h2>
+                <h3 id="game">Game</h3>
+                <p><strong>Data points:</strong></p>
+                <ul>
+                    <li>id<ul>
+                            <li><em>int PK</em>, game identifier.</li>
+                        </ul>
+                    </li>
+                    <li>title<ul>
+                            <li><em>string</em>, game title.</li>
+                        </ul>
+                    </li>
+                    <li>platform<ul>
+                            <li><em>string</em>, name of the game&#39;s platform.</li>
+                        </ul>
+                    </li>
+                    <li>releaseYear<ul>
+                            <li><em>int</em>, year of release.</li>
+                        </ul>
+                    </li>
+                    <li>image<ul>
+                            <li><em>string</em>, image name (including extension)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="character">Character</h3>
+                <p><strong>Data points:</strong></p>
+                <ul>
+                    <li>id<ul>
+                            <li><em>int PK</em>, character identifier.</li>
+                        </ul>
+                    </li>
+                    <li>name<ul>
+                            <li><em>string</em>, character name.</li>
+                        </ul>
+                    </li>
+                    <li>gameId<ul>
+                            <li><em>int FK</em>, id of the character&#39;s game of origin.</li>
+                        </ul>
+                    </li>
+                    <li>game<ul>
+                            <li><em>Game</em>, the game&#39;s object.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="end-points">End Points</h2>
+                <h3 id="ability">Ability</h3>
+                <h4 id="-get-api-ability-"><strong>GET/api/Ability</strong></h4>
+                <p><em>Returns a <code>List&lt;Ability&gt;</code> of all Abilities</em></p>
+                <h4 id="-get-api-ability-id-"><strong>GET/api/Ability/{id}</strong></h4>
+                <p><em>Returns an <code>Ability</code> by the given id</em></p>
+                <h4 id="-delete-api-ability-id-"><strong>DELETE/api/Ability/{id}</strong></h4>
+                <p><em>Deletes an <code>Ability</code> by the given id</em></p>
+                <h4 id="-post-api-ability-ability-"><strong>POST/api/Ability/{ability}</strong></h4>
+                <p><em>Posts a new <code>Ability</code> to the database using data from passed object</em></p>
+                <h4 id="-put-api-ability-ability-"><strong>PUT/api/Ability/{ability}</strong></h4>
+                <p><em>Updates existing <code>Ability</code> in the database using data from passed object</em></p>
+                <hr>
+                <h3 id="character">Character</h3>
+                <h4 id="get-api-character">GET/api/Character</h4>
+                <p><em>Returns a <code>List&lt;GameCharacter&gt;</code> of all characters</em></p>
+                <h4 id="get-api-character-id-">GET/api/Character/{id}</h4>
+                <p><em>Returns a <code>GameCharacter</code> by the given id</em></p>
+                <h4 id="delete-api-character-id-">DELETE/api/Character/{id}</h4>
+                <p><em>Deletes a <code>GameCharacter</code> by the given id</em></p>
+                <h4 id="post-api-character-post-gamecharacter-">POST/api/Character/Post/{gameCharacter}</h4>
+                <p><em>Posts a new <code>GameCharacter</code> to the database using data from the passed object</em>
+                </p>
+                <h4 id="put-api-character-gamecharacter-">PUT/api/Character/{gameCharacter}</h4>
+                <p><em>Updates an existing <code>GameCharacter</code> in the database using data from passed object</em>
+                </p>
+                <hr>
+                <h3 id="game">Game</h3>
+                <h4 id="get-api-game">GET/api/Game</h4>
+                <p><em>Returns a <code>List&lt;Game&gt;</code> of all games</em></p>
+                <h4 id="get-api-game-id-">GET/api/Game/{id}</h4>
+                <p><em>Returns a <code>Game</code> by the provided id</em></p>
+                <h4 id="delete-api-game-id-">DELETE/api/Game/{id}</h4>
+                <p><em>Deletes a <code>Game</code> by the given id</em></p>
+                <h4 id="get-api-game-getbytitle-title-">GET/api/Game/GetByTitle/{title}</h4>
+                <p><em>Returns a <code>Game</code> by the passed {title} parameter</em></p>
+                <h4 id="post-api-game-game-">POST/api/Game/{game}</h4>
+                <p><em>Posts a new <code>Game</code> to the database using data from a passed object</em></p>
+                <h4 id="put-api-game-game-">PUT/api/Game/{game}</h4>
+                <p><em>Updates an existing <code>Game</code> entry in the database using data from a passed object</em>
+                </p>
+                <hr>
+                <h3 id="quiz">Quiz</h3>
+                <h4 id="get-api-quiz">GET/api/Quiz</h4>
+                <p><em>Returns a <code>List&lt;Quiz&gt;</code> of all quizzes</em></p>
+                <h4 id="get-api-quiz-id-">GET/api/Quiz/{id}</h4>
+                <p><em>Returns a <code>Quiz</code> by the passed id</em></p>
+                <h4 id="delete-api-quiz-id-">DELETE/api/Quiz/{id}</h4>
+                <p><em>Deletes a <code>Quiz</code> with the corresponding id</em></p>
+                <h4 id="post-api-quiz-quiz-">POST/api/Quiz/{quiz}</h4>
+                <p><em>Posts a new <code>Quiz</code> to the database.</em></p>
+                <h4 id="put-api-quiz-quiz-">PUT/api/Quiz/{quiz}</h4>
+                <p><em>Updates an existing </em>Quiz<em> using data from the passed object</em></p>
+                <hr>
+                <h3 id="quizquestion">QuizQuestion</h3>
+                <p><em>Returns a <code>List&lt;QuizQuestion&gt;</code> of all questions</em></p>
+                <h4 id="get-api-quizquestion">GET/api/QuizQuestion</h4>
+                <p><em>Returns a <code>QuizQuestion</code> by the passed id</em></p>
+                <h4 id="get-api-quizquestion-id-">GET/api/QuizQuestion/{id}</h4>
+                <p><em>Deletes a <code>QuizQuestion</code> with the corresponding id</em></p>
+                <h4 id="delete-api-quizquestion-id-">DELETE/api/QuizQuestion/{id}</h4>
+                <p><em>Deletes a <code>QuizQuestion</code> with the corresponding id</em></p>
+                <h4 id="get-api-quizquestion-getquestionsbyquizid-quizid-">
+                    GET/api/QuizQuestion/GetQuestionsByQuizId/{quizId}</h4>
+                <p><em>Returns a <code>List&lt;QuizQuestion</code> by the passed id. Best way to find all questions
+                        related to a quiz.</em></p>
+                <h4 id="post-api-quizquestion-question-">POST/api/QuizQuestion/{question}</h4>
+                <p><em>Posts a new <code>QuizQuestion</code> to the database.</em></p>
+                <h4 id="put-api-quizquestion-question-">PUT/api/QuizQuestion/{question}</h4>
+                <p><em>Updates an existing <code>QuizQuestion</code>using data from the passed object</em></p>
+                <hr>
+                <h3 id="quizquestionanswer">QuizQuestionAnswer</h3>
+                <h4 id="get-api-quizquestionanswer">GET/api/QuizQuestionAnswer</h4>
+                <p><em>Returns a <code>List&lt;QuizQuestionAnswer&gt;</code> of all answers</em></p>
+                <h4 id="get-api-quizquestionanswer-id-">GET/api/QuizQuestionAnswer/{id}</h4>
+                <p><em>Returns a <code>QuizQuestionAnswer</code> by the passed id</em></p>
+                <h4 id="delete-api-quizquestionanswer-id-">DELETE/api/QuizQuestionAnswer/{id}</h4>
+                <p><em>Deletes a <code>QuizQuestionAnswer</code> with the corresponding id</em></p>
+                <h4 id="get-api-quizquestionanswer-getanswersbyquestionid-questionid-">
+                    GET/api/QuizQuestionAnswer/GetAnswersByQuestionId/{questionId}</h4>
+                <p><em>Returns a <code>List&lt;QuizQuestionAnswer&gt;</code> by the passed id. Use together with a
+                        question&#39;s id for the best way of pairing them up</em></p>
+                <h4 id="post-api-quizquestionanswer-questionanswer-">POST/api/QuizQuestionAnswer/{questionAnswer}</h4>
+                <p><em>Posts a new <code>QuizQuestionAnswer</code> to the database.</em></p>
+                <h4 id="put-api-quizquestionanswer-questionanswer-">PUT/api/QuizQuestionAnswer/{questionAnswer}</h4>
+                <p><em>Updates an existing <code>QuizQuestionAnswer</code>using data from the passed object</em></p>
+                <hr>
+                <h3 id="uploadimage">UploadImage</h3>
+                <p>GET/api/UploadImage
+                    <em>Returns a string informing the user the endpoint was used correctly.</em>
+                </p>
+                <p>POST/api/UploadImage
+                    <em>Uploads an image file to wwwroot</em>
+                </p>
+                <hr>
+                <h2 id="unused-schemas">Unused Schemas</h2>
+                <h3 id="ability">Ability</h3>
+                <p><strong>Data points:</strong></p>
+                <ul>
+                    <li>id<ul>
+                            <li><em>int PK</em>, ability identifier.</li>
+                        </ul>
+                    </li>
+                    <li>name<ul>
+                            <li><em>string</em>, ability name</li>
+                        </ul>
+                    </li>
+                    <li>iconImagePath<ul>
+                            <li><em>string</em>, icon path</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="quiz">Quiz</h3>
+                <p><strong>Data points:</strong></p>
+                <ul>
+                    <li>id<ul>
+                            <li><em>int PK</em>, quiz identifier.</li>
+                        </ul>
+                    </li>
+                    <li>name<ul>
+                            <li><em>string</em>, quiz name.</li>
+                        </ul>
+                    </li>
+                    <li>quizText<ul>
+                            <li><em>string</em>, the accompanying quiz description.</li>
+                        </ul>
+                    </li>
+                    <li>gameId<ul>
+                            <li><em>int FK</em>, game ID of the game this quiz is based off of.</li>
+                        </ul>
+                    </li>
+                    <li>gameObj<ul>
+                            <li><em>Game</em>, game this quiz is based off of.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="quizquestion">QuizQuestion</h3>
+                <p><strong>Data points:</strong></p>
+                <ul>
+                    <li>id<ul>
+                            <li><em>int PK</em>, question identifier.</li>
+                        </ul>
+                    </li>
+                    <li>question<ul>
+                            <li><em>string</em>, question text.</li>
+                        </ul>
+                    </li>
+                    <li>multipleAnswersCount<ul>
+                            <li><em>int</em>, the count of correct answers this question is related to.</li>
+                        </ul>
+                    </li>
+                    <li>quizId<ul>
+                            <li><em>int FK</em>, quiz foreign key.</li>
+                        </ul>
+                    </li>
+                    <li>quizObj<ul>
+                            <li><em>Quiz</em>, quiz object reference.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="quizquestionanswer">QuizQuestionAnswer</h3>
+                <p><strong>Data points:</strong></p>
+                <ul>
+                    <li>id<ul>
+                            <li><em>int PK</em>, answer identifier.</li>
+                        </ul>
+                    </li>
+                    <li>quizAnswerText<ul>
+                            <li><em>string</em>, the answer text.</li>
+                        </ul>
+                    </li>
+                    <li>correctAnswer<ul>
+                            <li><em>bool</em>, true/false if this is the correct answer.</li>
+                        </ul>
+                    </li>
+                    <li>quizQuestionId<ul>
+                            <li><em>int FK</em>, question foreign key that this answer is related to.</li>
+                        </ul>
+                    </li>
+                    <li>quizQuestionObj<ul>
+                            <li><em>QuizQuestion</em>, question object reference.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </section>
+        </main>
     </div>
-  </body>
+</body>
+
 </html>
