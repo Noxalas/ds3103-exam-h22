@@ -40,8 +40,8 @@ public class AbilityController : EGController
         }
     }
 
-    [HttpPut("{ability}")]
-    public IActionResult Put(Ability newAbility)
+    [HttpPost("{ability}")]
+    public IActionResult Post(Ability newAbility)
     {
         try
         {
@@ -55,8 +55,8 @@ public class AbilityController : EGController
         }
     }
 
-    [HttpPost("{ability}")]
-    public IActionResult Post(Ability ability)
+    [HttpPut("{ability}")]
+    public IActionResult Put(Ability ability)
     {
         var existingAbility = _context.Abilities.Where(a => a.Id == ability.Id).FirstOrDefault<Ability>();
 
