@@ -81,8 +81,8 @@ public class QuizQuestionController : EGController
         return Ok();
     }
 
-    [HttpPut("{question}")]
-    public IActionResult Put(QuizQuestion newQuestion)
+    [HttpPost("{question}")]
+    public IActionResult Post(QuizQuestion newQuestion)
     {
         try
         {
@@ -96,8 +96,8 @@ public class QuizQuestionController : EGController
         }
     }
 
-    [HttpPost("{question}")]
-    public IActionResult Post(QuizQuestion question)
+    [HttpPut("{question}")]
+    public IActionResult Put(QuizQuestion question)
     {
         var existingQuestion = _context.QuizQuestions.Where(q => q.Id == question.Id).FirstOrDefault();
 
