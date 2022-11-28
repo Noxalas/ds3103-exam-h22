@@ -32,6 +32,7 @@ var app = builder.Build();
 
 app.UseCors("AllowAll");
 
+
 DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
 defaultFilesOptions.DefaultFileNames.Add("index.html");
 app.UseDefaultFiles(defaultFilesOptions);
