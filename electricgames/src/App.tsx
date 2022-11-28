@@ -2,7 +2,7 @@ import GameService from "./services/GameService";
 import { Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { HomePage, ContactPage, QuizPage, EditPage, CreateNewPage } from "./pages";
-import "./Style.css";
+import "./assets/css/Style.css";
 
 function App() {
   GameService.getAllGames();

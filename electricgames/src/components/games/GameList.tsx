@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import GameItem from "./GameItem";
 import GameService from "../../services/GameService";
 import { Row } from "react-bootstrap";
-import React from "react";
 
 const GameList = () => {
   const [games, setGames] = useState<any[]>([]);
