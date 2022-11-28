@@ -43,8 +43,10 @@ const AddCharacter = () =>
         e.preventDefault();
 
         try {
-            const resp = await axios.post(endpoint, { name: name, game: JSON.stringify(game) });
+            const resp = await axios.post(endpoint + `/${name}`, { name: name, game: game });
+            console.log(resp.data);
         } catch (error: any) {
+            console.log(error);
         }
     };
 
